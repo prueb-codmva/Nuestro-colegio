@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Liceo Caucasia · Nuestro Liceo, Nuestro Orgullo
+   Página: Problemas y soluciones
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap");
+
+/* ---------- Variables ---------- */
+
+:root{
+    --blanco:#ffffff;
+    --azul-claro:#e6edf6;
+    --azul-hielo:#d6e4f6;
+    --azul-suave:#9db6d6;
+    --azul-medio:#2358a4;
+    --azul-hover:#14386f;
+    --azul-noche:#12274a;
+
+    --tinta:#1b2a41;
+    --gris:#566377;
+
+    --serif:"Lora", Georgia, serif;
+    --sans:"Source Sans 3", sans-serif;
+
+    --ancho:1180px;
+    --margen:clamp(20px,5vw,56px);
+    --espacio:clamp(56px,9vw,120px);
+
+    --radio:24px;
+    --sombra:0 18px 40px rgba(18,39,74,.12);
+
+    --transicion:.25s ease;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:var(--blanco);
+    color:var(--tinta);
+    font-family:var(--sans);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+}
+
+::selection{
+    background:var(--azul-claro);
+}
+
+hr{
+    display:none;
+}
+
+header,
+main,
+footer{
+    padding-inline:max(var(--margen), calc((100% - var(--ancho))/2));
+}
+
+/* ---------- Header ---------- */
+
+header{
+    text-align:center;
+    padding-top:42px;
+    padding-bottom:100px;
+}
+
+header p{
+    margin:0;
+    color:var(--azul-medio);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-weight:600;
+}
+
+header h1{
+    margin:20px auto 0;
+    max-width:12ch;
+
+    color:var(--azul-noche);
+
+    font-family:var(--serif);
+    font-size:clamp(3rem,10vw,7rem);
+    font-weight:600;
+
+    line-height:1.04;
+    letter-spacing:-.03em;
+}
+
+/* ---------- Introducción ---------- */
+
+main{
+    padding-bottom:var(--espacio);
+}
+
+main h2{
+    margin:0 0 20px;
+
+    text-align:center;
+
+    color:var(--azul-medio);
+
+    text-transform:uppercase;
+    letter-spacing:.16em;
+
+    font-size:1.1rem;
+    font-weight:600;
+}
+
+main > p:first-of-type{
+    max-width:36ch;
+    margin:0 auto 60px;
+
+    text-align:center;
+
+    font-family:var(--serif);
+    font-size:clamp(1.5rem,3vw,2.2rem);
+
+    line-height:1.5;
+}
+
+/* ---------- Botones ---------- */
+
+main > p:nth-of-type(2){
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+
+    margin-bottom:50px;
+}
+
+button{
+    padding:15px 28px;
+
+    border:none;
+    border-radius:999px;
+
+    background:var(--azul-medio);
+    color:white;
+
+    font-family:var(--sans);
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        background var(--transicion),
+        transform var(--transicion);
+}
+
+button:hover{
+    background:var(--azul-hover);
+    transform:translateY(-2px);
+}
+
+/* ---------- Contenedor ---------- */
+
+#probs{
+    display:grid;
+    gap:20px;
+
+    max-width:950px;
+    margin:0 auto;
+}
+
+/* ---------- Accordion ---------- */
+
+details{
+    overflow:hidden;
+
+    background:white;
+
+    border:1px solid var(--azul-hielo);
+    border-radius:24px;
+
+    box-shadow:0 6px 20px rgba(18,39,74,.06);
+
+    transition:
+        transform var(--transicion),
+        box-shadow var(--transicion);
+}
+
+details:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--sombra);
+}
+
+details[open]{
+    border-color:var(--azul-suave);
+}
+
+/* ---------- Cabecera ---------- */
+
+summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:24px 28px;
+
+    list-style:none;
+    cursor:pointer;
+
+    color:var(--azul-noche);
+
+    font-family:var(--serif);
+    font-size:1.4rem;
+    font-weight:600;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary::after{
+    content:"+";
+
+    color:var(--azul-medio);
+
+    font-size:2rem;
+    font-weight:400;
+
+    transition:transform var(--transicion);
+}
+
+details[open] summary::after{
+    content:"−";
+}
+
+/* ---------- Contenido ---------- */
+
+details p,
+details ul,
+details ol,
+details div{
+    padding-inline:28px;
+}
+
+details p:last-child,
+details ul:last-child,
+details ol:last-child,
+details div:last-child{
+    padding-bottom:26px;
+}
+
+details p{
+    color:var(--gris);
+    line-height:1.8;
+}
+
+details ul,
+details ol{
+    color:var(--gris);
+}
+
+details li{
+    margin-bottom:10px;
+}
+
+/* ---------- Destacado ---------- */
+
+strong{
+    color:var(--azul-hover);
+}
+
+/* ---------- Estado vacío ---------- */
+
+#probs:empty{
+    min-height:260px;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--azul-claro);
+    border-radius:28px;
+}
+
+#probs:empty::before{
+    content:"Las situaciones aparecerán aquí.";
+    color:var(--gris);
+    font-style:italic;
+}
+
+/* ---------- Escritorio ---------- */
+
+@media (min-width:960px){
+
+    #probs{
+        gap:24px;
+    }
+
+    summary{
+        font-size:1.6rem;
+        padding:28px 34px;
+    }
+
+    details p,
+    details ul,
+    details ol,
+    details div{
+        padding-inline:34px;
+    }
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    padding-block:80px;
+
+    background:var(--azul-noche);
+    color:var(--azul-hielo);
+
+    text-align:center;
+}
+
+footer p{
+    max-width:48ch;
+    margin:0 auto;
+}
+
+/* ---------- Accesibilidad ---------- */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+        transition:none !important;
+        animation:none !important;
+    }
+}

@@ -1,0 +1,358 @@
+/* ==========================================================================
+   Liceo Caucasia · Nuestro Liceo, Nuestro Orgullo
+   Página: Sentido de pertenencia
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap");
+
+/* ---------- Variables ---------- */
+
+:root{
+    --blanco:#ffffff;
+    --azul-claro:#e6edf6;
+    --azul-hielo:#d6e4f6;
+    --azul-suave:#9db6d6;
+    --azul-medio:#2358a4;
+    --azul-hover:#14386f;
+    --azul-noche:#12274a;
+
+    --tinta:#1b2a41;
+    --gris:#566377;
+
+    --serif:"Lora", Georgia, serif;
+    --sans:"Source Sans 3", sans-serif;
+
+    --ancho:1180px;
+    --margen:clamp(20px,5vw,56px);
+    --espacio:clamp(56px,9vw,120px);
+
+    --radio:24px;
+    --sombra:0 18px 40px rgba(18,39,74,.12);
+
+    --transicion:.25s ease;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:var(--blanco);
+    color:var(--tinta);
+    font-family:var(--sans);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+}
+
+::selection{
+    background:var(--azul-claro);
+}
+
+hr{
+    display:none;
+}
+
+header,
+main,
+footer{
+    padding-inline:max(var(--margen), calc((100% - var(--ancho))/2));
+}
+
+/* ---------- Header ---------- */
+
+header{
+    text-align:center;
+    padding-top:42px;
+    padding-bottom:100px;
+}
+
+header p{
+    margin:0;
+    color:var(--azul-medio);
+    font-size:1rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+}
+
+header h1{
+    margin:20px auto 0;
+    max-width:12ch;
+
+    color:var(--azul-noche);
+
+    font-family:var(--serif);
+    font-size:clamp(3rem,10vw,7rem);
+    font-weight:600;
+    line-height:1.04;
+    letter-spacing:-.03em;
+}
+
+/* ---------- Main ---------- */
+
+main{
+    padding-bottom:var(--espacio);
+}
+
+/* ---------- Títulos ---------- */
+
+h2{
+    margin:0 0 24px;
+
+    text-align:center;
+
+    color:var(--azul-medio);
+
+    text-transform:uppercase;
+    letter-spacing:.16em;
+
+    font-weight:600;
+    font-size:1.1rem;
+}
+
+h2 + p{
+    max-width:44ch;
+    margin:0 auto 70px;
+
+    text-align:center;
+
+    font-family:var(--serif);
+    font-size:clamp(1.4rem,3vw,2rem);
+    line-height:1.6;
+}
+
+/* ---------- Bloques informativos ---------- */
+
+h3{
+    max-width:850px;
+    margin:50px auto 12px;
+
+    color:var(--azul-noche);
+
+    font-family:var(--serif);
+    font-size:clamp(1.8rem,3vw,2.4rem);
+    font-weight:600;
+}
+
+h3 + p{
+    max-width:850px;
+    margin:0 auto;
+
+    color:var(--gris);
+
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+/* ---------- Tarjetas ---------- */
+
+h3{
+    position:relative;
+    padding-left:24px;
+}
+
+h3::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.2em;
+
+    width:8px;
+    height:1.2em;
+
+    border-radius:30px;
+
+    background:var(--azul-medio);
+}
+
+/* ---------- Sección compromiso ---------- */
+
+h2:last-of-type{
+    margin-top:110px;
+}
+
+#count{
+    color:var(--azul-medio);
+    font-size:1.3em;
+}
+
+/* ---------- Formulario ---------- */
+
+label{
+    display:block;
+
+    max-width:700px;
+    margin:40px auto 12px;
+
+    color:var(--azul-hover);
+
+    font-weight:600;
+}
+
+input{
+    width:min(100%,700px);
+
+    padding:18px 20px;
+
+    border:1px solid var(--azul-hielo);
+    border-radius:18px;
+
+    background:var(--blanco);
+
+    color:var(--tinta);
+
+    font-size:1rem;
+    font-family:inherit;
+
+    transition:border-color var(--transicion),
+               box-shadow var(--transicion);
+}
+
+input:focus{
+    outline:none;
+
+    border-color:var(--azul-medio);
+
+    box-shadow:0 0 0 4px rgba(35,88,164,.15);
+}
+
+button{
+    margin-top:18px;
+
+    padding:16px 28px;
+
+    border:none;
+    border-radius:999px;
+
+    background:var(--azul-medio);
+    color:white;
+
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:
+        background var(--transicion),
+        transform var(--transicion);
+}
+
+button:hover{
+    background:var(--azul-hover);
+    transform:translateY(-2px);
+}
+
+/* ---------- Contenedor formulario ---------- */
+
+label,
+input,
+button{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ---------- Error ---------- */
+
+#perr{
+    text-align:center;
+    color:#c0392b;
+    font-weight:600;
+    min-height:24px;
+}
+
+/* ---------- Lista compromisos ---------- */
+
+#names{
+    max-width:850px;
+
+    margin:40px auto 0;
+    padding:0;
+
+    display:grid;
+    gap:16px;
+}
+
+#names li{
+    list-style:none;
+
+    padding:20px 24px;
+
+    background:var(--azul-claro);
+
+    border-radius:18px;
+
+    color:var(--azul-noche);
+
+    font-weight:600;
+
+    transition:
+        transform var(--transicion),
+        background var(--transicion);
+}
+
+#names li:hover{
+    transform:translateX(6px);
+    background:var(--azul-hielo);
+}
+
+/* ---------- Destacado ---------- */
+
+#names li::before{
+    content:"✓ ";
+    color:var(--azul-medio);
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    padding-block:80px;
+
+    background:var(--azul-noche);
+    color:var(--azul-hielo);
+
+    text-align:center;
+}
+
+footer p{
+    max-width:48ch;
+    margin:0 auto;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width:768px){
+
+    #names{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* ---------- Escritorio ---------- */
+
+@media (min-width:960px){
+
+    main{
+        position:relative;
+    }
+
+    h3 + p{
+        padding-left:24px;
+    }
+}
+
+/* ---------- Accesibilidad ---------- */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+        transition:none !important;
+        animation:none !important;
+    }
+}

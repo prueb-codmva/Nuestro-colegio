@@ -1,0 +1,312 @@
+/* ==========================================================================
+   Liceo Caucasia · Nuestro Liceo, Nuestro Orgullo
+   Página: Cuidado del colegio
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap");
+
+/* ---------- Variables ---------- */
+
+:root{
+    --blanco:#ffffff;
+    --azul-claro:#e6edf6;
+    --azul-hielo:#d6e4f6;
+    --azul-suave:#9db6d6;
+    --azul-medio:#2358a4;
+    --azul-hover:#14386f;
+    --azul-noche:#12274a;
+
+    --tinta:#1b2a41;
+    --gris:#566377;
+
+    --serif:"Lora", Georgia, serif;
+    --sans:"Source Sans 3", sans-serif;
+
+    --ancho:1180px;
+    --margen:clamp(20px,5vw,56px);
+    --espacio:clamp(56px,9vw,120px);
+
+    --radio:24px;
+    --sombra:0 14px 32px rgba(18,39,74,.15);
+
+    --transicion:.25s ease;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:var(--blanco);
+    color:var(--tinta);
+    font-family:var(--sans);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+}
+
+::selection{
+    background:var(--azul-claro);
+}
+
+hr{
+    display:none;
+}
+
+header,
+main,
+footer{
+    padding-inline:max(var(--margen), calc((100% - var(--ancho))/2));
+}
+
+/* ---------- Header ---------- */
+
+header{
+    padding-top:40px;
+    padding-bottom:100px;
+    text-align:center;
+}
+
+header p{
+    margin:0;
+    color:var(--azul-medio);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-weight:600;
+}
+
+header h1{
+    margin:20px auto 0;
+    max-width:12ch;
+
+    font-family:var(--serif);
+    font-size:clamp(3rem,10vw,7rem);
+    line-height:1.04;
+    letter-spacing:-.03em;
+
+    color:var(--azul-noche);
+}
+
+/* ---------- Introducción ---------- */
+
+main{
+    padding-bottom:var(--espacio);
+}
+
+main h2{
+    margin:0 0 20px;
+    text-align:center;
+
+    color:var(--azul-medio);
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    font-size:1.1rem;
+    font-weight:600;
+}
+
+main > p{
+    max-width:38ch;
+    margin:0 auto 60px;
+
+    text-align:center;
+
+    font-family:var(--serif);
+    font-size:clamp(1.5rem,3vw,2.2rem);
+    line-height:1.5;
+}
+
+/* ---------- Tabs ---------- */
+
+#tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+
+    margin-bottom:50px;
+}
+
+#tabs button,
+#tabs [role="tab"]{
+    padding:14px 26px;
+
+    border:none;
+    border-radius:999px;
+
+    background:var(--azul-claro);
+    color:var(--azul-noche);
+
+    font-family:var(--sans);
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        background var(--transicion),
+        color var(--transicion),
+        transform var(--transicion);
+}
+
+#tabs button:hover,
+#tabs [role="tab"]:hover{
+    background:var(--azul-medio);
+    color:white;
+    transform:translateY(-2px);
+}
+
+#tabs button[aria-selected="true"],
+#tabs [role="tab"][aria-selected="true"]{
+    background:var(--azul-noche);
+    color:white;
+}
+
+/* ---------- Panel ---------- */
+
+#panel{
+    max-width:900px;
+    margin:0 auto;
+
+    padding:clamp(28px,4vw,50px);
+
+    background:white;
+    border-radius:28px;
+
+    box-shadow:var(--sombra);
+
+    border:1px solid var(--azul-hielo);
+}
+
+/* ---------- Contenido generado ---------- */
+
+#panel h3{
+    margin-top:0;
+
+    font-family:var(--serif);
+    font-size:clamp(2rem,4vw,3rem);
+    font-weight:600;
+
+    line-height:1.15;
+
+    color:var(--azul-noche);
+}
+
+#panel p{
+    color:var(--gris);
+    font-size:1.1rem;
+}
+
+#panel ul{
+    margin-top:30px;
+    padding:0;
+
+    display:grid;
+    gap:16px;
+}
+
+#panel li{
+    list-style:none;
+
+    padding:20px;
+
+    background:var(--azul-claro);
+    border-radius:18px;
+
+    color:var(--tinta);
+
+    transition:
+        transform var(--transicion),
+        background var(--transicion);
+}
+
+#panel li:hover{
+    transform:translateX(6px);
+    background:var(--azul-hielo);
+}
+
+#panel strong{
+    color:var(--azul-hover);
+}
+
+/* ---------- Tarjeta vacía ---------- */
+
+#panel:empty{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:280px;
+
+    background:var(--azul-claro);
+    box-shadow:none;
+}
+
+#panel:empty::before{
+    content:"Selecciona un espacio para ver recomendaciones.";
+    color:var(--gris);
+    text-align:center;
+    font-style:italic;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    padding-block:80px;
+
+    background:var(--azul-noche);
+    color:var(--azul-hielo);
+
+    text-align:center;
+}
+
+footer p{
+    max-width:48ch;
+    margin:0 auto;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width:768px){
+
+    #tabs{
+        gap:18px;
+    }
+}
+
+/* ---------- Escritorio ---------- */
+
+@media (min-width:960px){
+
+    #panel{
+        position:relative;
+        overflow:hidden;
+    }
+
+    #panel::before{
+        content:"";
+        position:absolute;
+        top:-120px;
+        right:-120px;
+
+        width:260px;
+        height:260px;
+
+        border-radius:50%;
+
+        background:rgba(157,182,214,.18);
+    }
+}
+
+/* ---------- Accesibilidad ---------- */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+        transition:none !important;
+        animation:none !important;
+    }
+}
